@@ -1,8 +1,11 @@
 #include "Player.h"
 #include "Game.h"
 #include <iostream>
+#include <cstdlib>
 
-Player::Player(std::string name) : name(name) {
+Player::Player(
+	std::string names[] = { "Sam", "Billy", "Jen", "ally", "Joe", "Sue", "Sasha", "Tina", "Marge" };
+	_name = names[rand() % 10];
 }
 
 Player::~Player() {
