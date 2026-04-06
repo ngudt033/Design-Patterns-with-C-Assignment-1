@@ -5,7 +5,7 @@
 
 Player::Player() {
 	std::string names[] = { "Sam", "Billy", "Jen", "ally", "Joe", "Sue", "Sasha", "Tina", "Marge" };
-	_name = names[rand() % 10];
+	_name = names[rand() % 9];
 }
 
 Player::~Player() {
@@ -31,8 +31,8 @@ bool Player::isBust() const {
 				return true;
 			}
 		}
-		return false;
 	}
+	return false;
 }
 
 	void Player::bankCards(Game & game) {
@@ -68,10 +68,10 @@ bool Player::isBust() const {
 		int oracleBest = 0;
 		int mapBest = 0;
 		int mermaidBest = 0;
-		int krakenBest = 0;
+		//int krakenBest = 0;
 
 		for (int i = 0; i < (int)_bank.size(); i++) {
-			CardType currrent = _bank[i]->type();
+			CardType current = _bank[i]->type();
 			int currentValue = _bank[i]->getValue();
 
 			if (current == Cannon && currentValue > cannonBest) {
@@ -98,10 +98,10 @@ bool Player::isBust() const {
 			else if (current == Mermaid && currentValue > mermaidBest) {
 				mermaidBest = currentValue;
 			}
-			else if (current == Kraken && currentValue > krakenBest) {
-				krakenBest = currentValue;
+			//else if (current == Kraken && currentValue > krakenBest) {
+				//krakenBest = currentValue;
 			
-			}
+	
 		}
 		int total = 0;
 		total += cannonBest;
@@ -112,7 +112,7 @@ bool Player::isBust() const {
 		total += oracleBest;
 		total += mapBest;
 		total += mermaidBest;
-		total += krakenBest;
+		//total += krakenBest;
 
 		return total;
 

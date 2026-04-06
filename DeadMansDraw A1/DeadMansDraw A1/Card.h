@@ -14,7 +14,7 @@ enum CardType {
 	Oracle,
 	Map,
 	Mermaid,
-	Kraken,
+	Kraken
 };
 
 class Card { 

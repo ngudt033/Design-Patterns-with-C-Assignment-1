@@ -7,7 +7,7 @@
 #include "OracleCard.h"
 #include "MapCard.h"
 #include "MermaidCard.h"
-#include "KrakenCard.h"
+//#include "KrakenCard.h"
 #include <iostream>
 #include <algorithm>
 #include <random>
@@ -34,7 +34,7 @@ Game::~Game() {
 
 void Game::startGame() {
 	createDeck();
-	shuffleDeck();
+	shuffleDeck(_deck);
 }
 
 void Game::createDeck() {
@@ -46,7 +46,7 @@ void Game::createDeck() {
 		_deck.push_back(new HookCard(i));
 		_deck.push_back(new OracleCard(i));
 		_deck.push_back(new MapCard(i));
-		_deck.push_back(new KrakenCard(i));
+		//_deck.push_back(new KrakenCard(i));
 	}
 
 	for (int i = 4; i <= 9; i++) {

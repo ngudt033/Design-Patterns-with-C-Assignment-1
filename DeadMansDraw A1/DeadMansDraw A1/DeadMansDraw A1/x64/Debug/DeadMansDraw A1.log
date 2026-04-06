@@ -15,31 +15,13 @@ C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\De
   (compiling source file 'Game.cpp')
   
 C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Game.cpp(49,23): error C2061: syntax error: identifier 'KrakenCard'
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Game.cpp(57,12): error C2511: 'void Game::shuffleDeck(CardCollection &)': overloaded member function not found in 'Game'
-      C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Game.h(4,7):
-      see declaration of 'Game'
-  
+  HookCard.cpp
+  KrakenCard.cpp
   MermaidCard.cpp
 C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.h(5,1): error C2236: unexpected token 'class'. Did you forget a ';'?
   (compiling source file 'MermaidCard.cpp')
   
+  OracleCard.cpp
   Player.cpp
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(8,2): error C2065: '_name': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(15,9): error C2065: '_name': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(74,32): error C2248: 'Card::typeValue': cannot access private member declared in class 'Card'
-      C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Card.h(23,11):
-      see declaration of 'Card::typeValue'
-      C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Card.h(20,7):
-      see declaration of 'Card'
-  
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(74,32): error C2064: term does not evaluate to a function taking 0 arguments
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(77,8): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(80,13): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(83,13): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(86,13): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(89,13): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(92,13): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(95,13): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(98,13): error C2065: 'current': undeclared identifier
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(101,13): error C2065: 'current': undeclared identifier
+  SwordCard.cpp
   Generating Code...

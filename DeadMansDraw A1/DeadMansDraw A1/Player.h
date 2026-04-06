@@ -6,7 +6,7 @@ class Game;
 
 class Player {
 private:
-	std::string name;
+	std::string _name;
 	CardCollection _playArea;
 	CardCollection _bank;
 

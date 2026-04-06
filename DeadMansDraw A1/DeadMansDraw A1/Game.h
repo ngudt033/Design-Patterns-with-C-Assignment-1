@@ -16,7 +16,7 @@ public:
 
 	void startGame();
 	void createDeck();
-	void shuffleDeck();
+	void shuffleDeck(CardCollection& cards);
 	void playTurn();
 	Card * drawCard();
 	void switchPlayer();

@@ -12,4 +12,3 @@ std::string KrakenCard::str() const {
 
 void KrakenCard::play(Game& game, Player& player) {
 }
-
