@@ -35,6 +35,12 @@ Game::~Game() {
 void Game::startGame() {
 	createDeck();
 	shuffleDeck(_deck);
+	std::cout << "Starting Dead Man's Draw++!" << std::endl;
+
+
+	while (!_deck.empty()) {
+		playTurn();
+	}
 }
 
 void Game::createDeck() {
@@ -61,10 +67,55 @@ void Game::shuffleDeck(CardCollection & cards) {
 }
 
 void Game::playTurn() {
-	std::cout << "Round: " << _round << std::endl;
-	std::cout << "Turn: " << _turn << std::endl;
-	std::cout << "Current Player: " << getCurrentPlayer()->getName() << std::endl;
+	Player* currentPlayer = getCurrentPlayer();
+	std::cout << "--- Round: " << _round << "," << "Turn: " << _turn << " ---" << std::endl;
+	std::cout << currentPlayer->getName() <<"'s turn." << std::endl;
+	std::cout << currentPlayer->getName() <<"'s Bank: " << currentPlayer->calculateScore() << std::endl;
+
+	bool keepDrawingCards = true;
+
+	while (keepDrawingCards) {
+		Card* drawnCard = drawCard();
+
+		if (drawnCard == nullptr) {
+			return;
+		}
+
+		std::cout << currentPlayer->getName() <<" draws a " << drawnCard->str() << std::endl;
+
+		bool busted = currentPlayer->playCard(drawnCard, *this);
+
+		if (busted) {
+			std::cout << currentPlayer->getName() << " busted!" << std::endl;
+
+			for (int i = 0; i < (int)currentPlayer->getPlayArea().size(); i++) {
+				_discardPile.push_back(currentPlayer->getPlayArea()[i]);
+			}
+
+			currentPlayer->getPlayArea().clear();
+			switchPlayer();
+			return;
+		}
+
+		currentPlayer->displayPlayArea();
+		
+		std::string input;
+		std::cout << "Draw agaon (y/n): ";
+		std::cin >> input;
+
+		if (input != "y" && input != "Y") {
+			currentPlayer->bankCards(*this);
+			currentPlayer->displayBank();
+			switchPlayer();
+			return;
+		}
+		else if (input == "n") {
+
+		}
+
+	}
 }
+
 
 Card* Game::drawCard() {
 	if (_deck.empty()) {

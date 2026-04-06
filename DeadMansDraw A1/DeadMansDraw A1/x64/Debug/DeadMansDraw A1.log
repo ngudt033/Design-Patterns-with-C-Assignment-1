@@ -1,9 +1,2 @@
-﻿  DeadMansDraw A1.cpp
-  Game.cpp
-  HookCard.cpp
-  MermaidCard.cpp
-  OracleCard.cpp
-  Player.cpp
-  SwordCard.cpp
-  Generating Code...
+﻿  Game.cpp
   DeadMansDraw A1.vcxproj -> C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\x64\Debug\DeadMansDraw A1.exe
