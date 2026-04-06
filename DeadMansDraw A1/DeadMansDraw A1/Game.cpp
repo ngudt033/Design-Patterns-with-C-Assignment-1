@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <random>
 
-Game::Game() : _currentPlayer(0)._round(1), _turn(1) {
+Game::Game() : _currentPlayer(0),_round(1), _turn(1) {
 	_players[0] = new Player();
 	_players[1] = new Player();
 
@@ -21,7 +21,7 @@ Game::Game() : _currentPlayer(0)._round(1), _turn(1) {
 
 Game::~Game() {
 	for (int i = 0; i < (int)_deck.size(); i++) {
-		delete _deck[i]
+		delete _deck[i];
 	}
 
 	for (int i = 0; i < (int)_discardPile.size(); i++) {
@@ -38,7 +38,7 @@ void Game::startGame() {
 }
 
 void Game::createDeck() {
-	for (int i = 2; i <= 7. i++) {
+	for (int i = 2; i <= 7; i++) {
 		_deck.push_back(new CannonCard(i));
 		_deck.push_back(new ChestCard(i));
 		_deck.push_back(new KeyCard(i));
@@ -50,24 +50,24 @@ void Game::createDeck() {
 	}
 
 	for (int i = 4; i <= 9; i++) {
-		_deck.push_back(new MermaidCard(i
+		_deck.push_back(new MermaidCard(i));
 	}
 }
 
-void shuffleDeck(CardCollection & cards) {
+void Game::shuffleDeck(CardCollection & cards) {
 	CardCollection shuffleDeck{ cards.begin(), cards.end() };
 	std::shuffle(shuffleDeck.begin(), shuffleDeck.end(), std::mt19937{ std::random_device{}() });
 	std::copy(shuffleDeck.begin(), shuffleDeck.end(), cards.begin());
 }
 
 void Game::playTurn() {
-	std::cout << "Round: " << round << std::endl;
-	std::cout << "Turn: " << turn << std::endl;
+	std::cout << "Round: " << _round << std::endl;
+	std::cout << "Turn: " << _turn << std::endl;
 	std::cout << "Current Player: " << getCurrentPlayer()->getName() << std::endl;
 }
 
 Card* Game::drawCard() {
-	if (_deck.empty() {
+	if (_deck.empty()) {
 		std::cout << "Deck is empty. Unable draw a card." << std::endl;
 		return nullptr;
 	}
@@ -77,16 +77,16 @@ Card* Game::drawCard() {
 }
 
 void Game::switchPlayer() {
-	if (currentPlayer == 0) {
-		currentPlayer = 1;
+	if (_currentPlayer == 0) {
+		_currentPlayer = 1;
 	}
 	else {
-		currentPlayer = 0;
+		_currentPlayer = 0;
 	}
-	turn++;
+	_turn++;
 
-	if (turn % 2 == 1) {
-		round++;
+	if (_turn % 2 == 1) {
+		_round++;
 	}
 }
 
@@ -110,11 +110,11 @@ void Game::endGame() {
 }
 
 Player* Game::getCurrentPlayer() const {
-	return _players[curreentPlayer];
+	return _players[_currentPlayer];
 }
 
-Player* Game::getItherPlayer() const {
-	if (currentPlayer == 0) {
+Player* Game::getOtherPlayer() const {
+	if (_currentPlayer == 0) {
 		return _players[1];
 	}
 	else {

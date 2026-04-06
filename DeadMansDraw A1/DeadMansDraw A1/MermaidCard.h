@@ -1,7 +1,7 @@
 #pragma once
 #include "Card.h"
 
-class MermaidCard : public Card : {
+class MermaidCard : public Card {
 public: 
 	MermaidCard(int value);
 	std::string str() const override;

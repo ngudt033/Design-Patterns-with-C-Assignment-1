@@ -7,11 +7,11 @@ class Game;
 class Player {
 private:
 	std::string name;
-	CardCollection playArea;
-	CardCollection bank;
+	CardCollection _playArea;
+	CardCollection _bank;
 
 public:
-	Player(std::string name);
+	Player();
 	~Player();
 
 	std::string getName() const;

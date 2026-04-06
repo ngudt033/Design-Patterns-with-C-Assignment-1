@@ -1,4 +1,4 @@
-#include "Card.h"
+ #include "Card.h"
 
 Card::Card(int value, CardType type) : value(value), typeValue(type) {
 }
@@ -10,7 +10,7 @@ int Card::getValue() const {
 	return value;
 }
 
-int Card::type() const {
+CardType Card::type() const {
 	return typeValue;
 }
 

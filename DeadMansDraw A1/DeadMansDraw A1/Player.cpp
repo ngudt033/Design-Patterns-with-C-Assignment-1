@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 
-Player::Player(
+Player::Player() {
 	std::string names[] = { "Sam", "Billy", "Jen", "ally", "Joe", "Sue", "Sasha", "Tina", "Marge" };
 	_name = names[rand() % 10];
 }
@@ -12,11 +12,11 @@ Player::~Player() {
 }
 
 std::string Player::getName() const {
-	return name;
+	return _name;
 }
 
 bool Player::playCard(Card* card, Game& game) {
-	playArea.push_back(card);
+	_playArea.push_back(card);
 	if (isBust()) {
 		return true;
 	}
@@ -25,9 +25,9 @@ bool Player::playCard(Card* card, Game& game) {
 }
 
 bool Player::isBust() const {
-	for (int i = 0; i < (int)playArea.size(); i++) {
-		for (int j = i + 1; j < (int)playArea.size(); j++) {
-			if (playArea[i]->type() == playArea[j]->type()) {
+	for (int i = 0; i < (int)_playArea.size(); i++) {
+		for (int j = i + 1; j < (int)_playArea.size(); j++) {
+			if (_playArea[i]->type() == _playArea[j]->type()) {
 				return true;
 			}
 		}
@@ -36,26 +36,27 @@ bool Player::isBust() const {
 }
 
 	void Player::bankCards(Game & game) {
-		for (int i = 0; i < (int)playArea.size(); i++) {
-			playArea[i]->willAddToBank(game, *this);
-			bank.push_back(playArea[i]);
+		for (int i = 0; i < (int)_playArea.size(); i++) {
+			_playArea[i]->willAddToBank(game, *this);
+			_bank.push_back(_playArea[i]);
 		}
-		playArea.clear();
+		_playArea.clear();
 	}
 
 	void Player::displayPlayArea() const { 
 		std::cout << "Play Area: " << std::endl;
-		for (int i = 0; i < (int)playArea.size(); i++) {
-			std::cout << playArea[i]->str() << std::endl;
+		for (int i = 0; i < (int)_playArea.size(); i++) {
+			std::cout << _playArea[i]->str() << std::endl;
 		}
 		std::cout << std::endl;
 	}
 
 	void Player::displayBank() const {
 		std::cout << "Bank: " << std::endl;
-		for (int i = 0; i < (int)bank.size(); i++) {
-			std::cout << bank[i]->str() << std::end1;
+		for (int i = 0; i < (int)_bank.size(); i++) {
+			std::cout << _bank[i]->str() << std::endl;
 		}
+		std::cout << std::endl;
 	}
 
 	int Player::calculateScore() const {
@@ -69,9 +70,9 @@ bool Player::isBust() const {
 		int mermaidBest = 0;
 		int krakenBest = 0;
 
-		for (int i = 0; i < (int)bank.size(); i++) {
-			CardType currrent = bank[i]->type();
-			int currentValue = bank[i]->getValue();
+		for (int i = 0; i < (int)_bank.size(); i++) {
+			CardType currrent = _bank[i]->type();
+			int currentValue = _bank[i]->getValue();
 
 			if (current == Cannon && currentValue > cannonBest) {
 				cannonBest = currentValue;
@@ -118,9 +119,9 @@ bool Player::isBust() const {
 	}
 
 	CardCollection& Player::getPlayArea() {
-		return playArea;
+		return _playArea;
 	}
 
 	CardCollection& Player::getBank() {
-		return bank;
+		return _bank;
 	}

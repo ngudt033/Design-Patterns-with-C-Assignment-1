@@ -3,12 +3,12 @@
 
 class Game {
 private:
-	CardCollection deck;
-	CardCollection discardPile;
-	Player* players[2];
-	int currentPlayer;
-	int round;
-	int turn;
+	CardCollection _deck;
+	CardCollection _discardPile;
+	Player* _players[2];
+	int _currentPlayer;
+	int _round;
+	int _turn;
 
 public: 
 	Game();

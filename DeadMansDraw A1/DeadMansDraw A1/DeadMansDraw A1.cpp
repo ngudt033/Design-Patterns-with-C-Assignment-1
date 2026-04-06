@@ -3,9 +3,8 @@
 #include <iostream>
 
 int main() {
-	std::cout << game_title << std::endl;
+	std::cout << GAME_TITLE << std::endl;
 	Game game;
 	game.startGame();
-	std::cin.get();
 	return 0;
 }
