@@ -26,6 +26,6 @@ public:
 
 	CardCollection& getPlayArea();
 	CardCollection& getBank();
-
+	Card* removeBankCard(int index);
 
 };

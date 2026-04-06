@@ -125,3 +125,12 @@ bool Player::isBust() const {
 	CardCollection& Player::getBank() {
 		return _bank;
 	}
+
+	Card* Player::removeBankCard(int index) {
+		if (index < 0 || index >= (int)_bank.size()) {
+			return nullptr;
+		}
+		Card* card = _bank[index];
+		_bank.erase(_bank.begin() + index);
+		return card;
+	}

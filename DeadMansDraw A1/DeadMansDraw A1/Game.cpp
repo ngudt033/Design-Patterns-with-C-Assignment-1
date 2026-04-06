@@ -100,7 +100,7 @@ void Game::playTurn() {
 		currentPlayer->displayPlayArea();
 		
 		std::string input;
-		std::cout << "Draw agaon (y/n): ";
+		std::cout << "Draw again (y/n): ";
 		std::cin >> input;
 
 		if (input != "y" && input != "Y") {
