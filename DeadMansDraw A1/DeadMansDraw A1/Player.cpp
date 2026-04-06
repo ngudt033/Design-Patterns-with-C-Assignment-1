@@ -134,3 +134,7 @@ bool Player::isBust() const {
 		_bank.erase(_bank.begin() + index);
 		return card;
 	}
+
+	void Player::addCardToPlayArea(Card* card) {
+		_playArea.push_back(card);
+	}

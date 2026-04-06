@@ -23,9 +23,11 @@ public:
 	void displayPlayArea() const;
 	void displayBank() const;
 	int calculateScore() const;
+	void addCardToPlayArea(Card* card);
 
 	CardCollection& getPlayArea();
 	CardCollection& getBank();
 	Card* removeBankCard(int index);
+	
 
 };
