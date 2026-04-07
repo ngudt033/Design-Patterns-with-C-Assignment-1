@@ -1,16 +1,4 @@
-﻿  CannonCard.cpp
-  Card.cpp
-  ChestCard.cpp
-  DeadMansDraw A1.cpp
-  Game.cpp
-  HookCard.cpp
-  KeyCard.cpp
-  KrakenCard.cpp
-  MapCard.cpp
-  MermaidCard.cpp
-  OracleCard.cpp
+﻿  DeadMansDraw A1.cpp
   Player.cpp
-  SwordCard.cpp
   Generating Code...
-C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(146,1): warning C4715: 'Player::calculateScore': not all control paths return a value
   DeadMansDraw A1.vcxproj -> C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\x64\Debug\DeadMansDraw A1.exe
