@@ -85,7 +85,8 @@ void Game::playTurn() {
 
 		bool busted = currentPlayer->playCard(drawnCard, *this);
 
-		if (busted) {
+		if (busted || currentPlayer->isBust()) {
+
 			std::cout << currentPlayer->getName() << " busted!" << std::endl;
 
 			for (int i = 0; i < (int)currentPlayer->getPlayArea().size(); i++) {

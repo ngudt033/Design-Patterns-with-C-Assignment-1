@@ -17,6 +17,8 @@ void CannonCard::play(Game& game, Player& player) {
 
 	if (opponentBank.empty()) {
 		std::cout << "Cannon: Unable to discard highest value card from opponent's bank, opponent's bank is empty." << std::endl;
+		return;
+
 	}
 	
 	int highestValue = 0;
@@ -27,6 +29,14 @@ void CannonCard::play(Game& game, Player& player) {
 		}
 	}
 	Card* discardedCard = opponent->removeBankCard(highestValue);
+	
+	if (discardedCard == nullptr) {
+		std::cout << "Cannon: Unable to discard card from opponent's bank.";
+		return;
+
+	}
+
+	game.getDiscardPile().push_back(discardedCard);
 
 	std::cout << "Cannon: Discarded " << discardedCard->str() << " from opponent's bank." << std::endl;
 }
