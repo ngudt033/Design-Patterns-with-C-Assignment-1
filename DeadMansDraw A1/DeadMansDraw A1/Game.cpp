@@ -97,6 +97,7 @@ void Game::playTurn() {
 			return;
 		}
 
+
 		currentPlayer->displayPlayArea();
 		
 		std::string input;

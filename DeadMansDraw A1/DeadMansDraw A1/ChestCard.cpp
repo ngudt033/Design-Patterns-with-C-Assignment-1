@@ -30,4 +30,19 @@ void ChestCard::willAddToBank(Game& game, Player& player) {
 		return;
 	}
 
+	int bonusCardsDraw = (int)playArea.size();
+
+	for (int i = 0; i < bonusCardsDraw; i++) {
+		if (game.getDiscardPile().empty()) {
+			std::cout << "No more cards to draw for Chest and Key bonus." << std::endl;
+			return;
+		}
+		else {
+			Card* bonusCard = game.getDiscardPile().back();
+			game.getDiscardPile().pop_back();
+			player.getBank().push_back(bonusCard);
+			std::cout << "Chest and Key bonus: Drew " << bonusCard->str() << std::endl;
+			
+	}
+
 }
