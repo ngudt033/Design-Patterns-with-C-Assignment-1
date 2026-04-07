@@ -104,22 +104,29 @@ void Game::playTurn() {
 		currentPlayer->displayPlayArea();
 		
 		std::string input;
-		std::cout << "Draw again (y/n): ";
-		std::cin >> input;
 
-		if (input != "n" && input != "N") {
-			currentPlayer->bankCards(*this);
-			currentPlayer->displayBank();
-			std::cout << currentPlayer->getName() << "'s Score: " << currentPlayer->calculateScore() << std::endl;
-			switchPlayer();
-			return;
+		while (true) {
+			std::cout << "Draw again (y/n): ";
+			std::cin >> input;
+
+			if (input == "n" || input == "N") {
+				currentPlayer->bankCards(*this);
+				currentPlayer->displayBank();
+				std::cout << currentPlayer->getName() << "'s Score: " << currentPlayer->calculateScore() << std::endl;
+				switchPlayer();
+				return;
+			}
+			else if (input == "y" || input == "Y") {
+				break;
+			}
+			else {
+				std::cout << "Invalid input. Please enter either Y/N." << std::endl;
+			}
 		}
-		else if (input == "y" && "Y") {
-			break;
-		}
-		else {
-			std::cout << "Invalid input. Please enter either Y/N." << std::endl;
-		}
+
+		
+
+		
 
 	}
 }
