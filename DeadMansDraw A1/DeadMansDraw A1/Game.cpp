@@ -70,6 +70,7 @@ void Game::shuffleDeck(CardCollection & cards) {
 
 void Game::playTurn() {
 	Player* currentPlayer = getCurrentPlayer();
+	std::cout << std::endl;
 	std::cout << "--- Round: " << _round << "," << "Turn: " << _turn << " ---" << std::endl;
 	std::cout << currentPlayer->getName() <<"'s turn." << std::endl;
 	std::cout << currentPlayer->getName() <<"'s Score: " << currentPlayer->calculateScore() << std::endl;
@@ -106,17 +107,21 @@ void Game::playTurn() {
 		std::string input;
 
 		while (true) {
-			std::cout << "Draw again (y/n): ";
+			std::cout << "Draw again (y/n): " << std::endl;
 			std::cin >> input;
 
 			if (input == "n" || input == "N") {
 				currentPlayer->bankCards(*this);
 				currentPlayer->displayBank();
 				std::cout << currentPlayer->getName() << "'s Score: " << currentPlayer->calculateScore() << std::endl;
+				std::cout << std::endl;
+
 				switchPlayer();
 				return;
 			}
 			else if (input == "y" || input == "Y") {
+				std::cout << std::endl;
+				std::cout << std::endl;
 				break;
 			}
 			else {

@@ -46,7 +46,7 @@ bool Player::isBust() const {
 	void Player::displayPlayArea() const { 
 		std::cout << "Play Area: " << std::endl;
 		for (int i = 0; i < (int)_playArea.size(); i++) {
-			std::cout << _playArea[i]->str() << std::endl;
+			std::cout << "   " << _playArea[i]->str() << std::endl;
 		}
 		std::cout << std::endl;
 	}
@@ -54,7 +54,7 @@ bool Player::isBust() const {
 	void Player::displayBank() const {
 		std::cout << "Bank: " << std::endl;
 		for (int i = 0; i < (int)_bank.size(); i++) {
-			std::cout << _bank[i]->str() << std::endl;
+			std::cout << "   " << _bank[i]->str() << std::endl;
 		}
 		std::cout << std::endl;
 	}
