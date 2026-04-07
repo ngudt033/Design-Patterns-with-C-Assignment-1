@@ -12,4 +12,5 @@
   Player.cpp
   SwordCard.cpp
   Generating Code...
+C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\DeadMansDraw A1\Player.cpp(146,1): warning C4715: 'Player::calculateScore': not all control paths return a value
   DeadMansDraw A1.vcxproj -> C:\Users\Duy\source\repos\Design-Patterns-with-C-Assignment-1\DeadMansDraw A1\x64\Debug\DeadMansDraw A1.exe

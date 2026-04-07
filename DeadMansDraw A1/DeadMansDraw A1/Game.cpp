@@ -7,7 +7,7 @@
 #include "OracleCard.h"
 #include "MapCard.h"
 #include "MermaidCard.h"
-//#include "KrakenCard.h"
+#include "KrakenCard.h"
 #include <iostream>
 #include <algorithm>
 #include <random>
@@ -54,7 +54,7 @@ void Game::createDeck() {
 		_deck.push_back(new HookCard(i));
 		_deck.push_back(new OracleCard(i));
 		_deck.push_back(new MapCard(i));
-		//_deck.push_back(new KrakenCard(i));
+		_deck.push_back(new KrakenCard(i));
 	}
 
 	for (int i = 4; i <= 9; i++) {
@@ -73,7 +73,11 @@ void Game::playTurn() {
 	std::cout << std::endl;
 	std::cout << "--- Round: " << _round << "," << "Turn: " << _turn << " ---" << std::endl;
 	std::cout << currentPlayer->getName() <<"'s turn." << std::endl;
-	std::cout << currentPlayer->getName() <<"'s Score: " << currentPlayer->calculateScore() << std::endl;
+	std::cout << currentPlayer->getName() << "'s Bank:" << std::endl;
+	currentPlayer->displayBank();
+	std::cout << " | " << currentPlayer->getName() << "'s Score: " << currentPlayer->calculateScore() << std::endl;
+	std::cout << std::endl;
+
 
 	bool keepDrawingCards = true;
 
@@ -107,12 +111,14 @@ void Game::playTurn() {
 		std::string input;
 
 		while (true) {
-			std::cout << "Draw again (y/n): " << std::endl;
+			std::cout << "Draw again (y/n): ";
 			std::cin >> input;
 
 			if (input == "n" || input == "N") {
 				currentPlayer->bankCards(*this);
+				std::cout << currentPlayer->getName() << "'s Bank:" << std::endl;
 				currentPlayer->displayBank();
+				std::cout << std::endl;
 				std::cout << currentPlayer->getName() << "'s Score: " << currentPlayer->calculateScore() << std::endl;
 				std::cout << std::endl;
 

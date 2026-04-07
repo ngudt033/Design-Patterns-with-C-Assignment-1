@@ -16,7 +16,7 @@ void SwordCard::play(Game& game, Player& player) {
 	CardCollection& opponentBank = opponent->getBank();
 
 	if (opponentBank.empty()) {
-		std::cout << "Sword: Unable to steal highest value card from opponent's bank, opponent's bank is empty.";
+		std::cout << "Sword: Unable to steal highest value card from opponent's bank, opponent's bank is empty." << std::endl;
 		return;
 	}
 	

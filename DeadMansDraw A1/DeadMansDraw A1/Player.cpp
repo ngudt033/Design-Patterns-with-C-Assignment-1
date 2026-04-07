@@ -44,19 +44,45 @@ bool Player::isBust() const {
 	}
 
 	void Player::displayPlayArea() const { 
-		std::cout << "Play Area: " << std::endl;
-		for (int i = 0; i < (int)_playArea.size(); i++) {
-			std::cout << "   " << _playArea[i]->str() << std::endl;
+
+		bool print = false;
+		
+		for (int suit = Cannon; suit <= Mermaid; suit++) {
+			print = false;
+
+			for (int i = 0; i < (int)_playArea.size(); i++) {
+				if (_playArea[i]->type() == (CardType)suit) {
+					if (!print) {
+						print = true;
+					}
+					std::cout << _playArea[i]->str() << " ";
+				}
+			}
+			if (print) {
+				std::cout << std::endl;
+			}
 		}
-		std::cout << std::endl;
 	}
 
 	void Player::displayBank() const {
-		std::cout << "Bank: " << std::endl;
-		for (int i = 0; i < (int)_bank.size(); i++) {
-			std::cout << "   " << _bank[i]->str() << std::endl;
+		
+		bool print = false;
+		
+		for (int suit = Cannon; suit <= Mermaid; suit++) {
+			print = false;
+
+			for (int i = 0; i < (int)_bank.size(); i++) {
+				if (_bank[i]->type() == (CardType)suit) {
+					if (!print) {
+						print = true;
+					}
+					std::cout << _bank[i]->str() << " ";
+				}
+			}
+			if (print) {
+				std::cout << std::endl;
+			}
 		}
-		std::cout << std::endl;
 	}
 
 	int Player::calculateScore() const {
@@ -68,7 +94,7 @@ bool Player::isBust() const {
 		int oracleBest = 0;
 		int mapBest = 0;
 		int mermaidBest = 0;
-		//int krakenBest = 0;
+		int krakenBest = 0;
 
 		for (int i = 0; i < (int)_bank.size(); i++) {
 			CardType current = _bank[i]->type();
@@ -98,24 +124,25 @@ bool Player::isBust() const {
 			else if (current == Mermaid && currentValue > mermaidBest) {
 				mermaidBest = currentValue;
 			}
-			//else if (current == Kraken && currentValue > krakenBest) {
-				//krakenBest = currentValue;
-			
-	
+			else if (current == Kraken && currentValue > krakenBest) {
+				krakenBest = currentValue;
+
+
+			}
+			int total = 0;
+			total += cannonBest;
+			total += chestBest;
+			total += keyBest;
+			total += swordBest;
+			total += hookBest;
+			total += oracleBest;
+			total += mapBest;
+			total += mermaidBest;
+			total += krakenBest;
+
+			return total;
+
 		}
-		int total = 0;
-		total += cannonBest;
-		total += chestBest;
-		total += keyBest;
-		total += swordBest;
-		total += hookBest;
-		total += oracleBest;
-		total += mapBest;
-		total += mermaidBest;
-		//total += krakenBest;
-
-		return total;
-
 	}
 
 	CardCollection& Player::getPlayArea() {
