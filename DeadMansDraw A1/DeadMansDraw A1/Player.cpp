@@ -47,7 +47,7 @@ bool Player::isBust() const {
 
 		bool print = false;
 		
-		for (int suit = Cannon; suit <= Mermaid; suit++) {
+		for (int suit = Cannon; suit <= Kraken; suit++) {
 			print = false;
 
 			for (int i = 0; i < (int)_playArea.size(); i++) {
@@ -68,7 +68,7 @@ bool Player::isBust() const {
 		
 		bool print = false;
 		
-		for (int suit = Cannon; suit <= Mermaid; suit++) {
+		for (int suit = Cannon; suit <= Kraken; suit++) {
 			print = false;
 
 			for (int i = 0; i < (int)_bank.size(); i++) {
@@ -129,20 +129,20 @@ bool Player::isBust() const {
 
 
 			}
-			int total = 0;
-			total += cannonBest;
-			total += chestBest;
-			total += keyBest;
-			total += swordBest;
-			total += hookBest;
-			total += oracleBest;
-			total += mapBest;
-			total += mermaidBest;
-			total += krakenBest;
-
-			return total;
 
 		}
+		int total = 0;
+		total += cannonBest;
+		total += chestBest;
+		total += keyBest;
+		total += swordBest;
+		total += hookBest;
+		total += oracleBest;
+		total += mapBest;
+		total += mermaidBest;
+		total += krakenBest;
+
+		return total;
 	}
 
 	CardCollection& Player::getPlayArea() {
