@@ -41,9 +41,11 @@ void Game::startGame() {
 	while (!_deck.empty()) {
 		playTurn();
 	}
+	endGame();
 }
 
 void Game::createDeck() {
+
 	for (int i = 2; i <= 7; i++) {
 		_deck.push_back(new CannonCard(i));
 		_deck.push_back(new ChestCard(i));
@@ -70,7 +72,7 @@ void Game::playTurn() {
 	Player* currentPlayer = getCurrentPlayer();
 	std::cout << "--- Round: " << _round << "," << "Turn: " << _turn << " ---" << std::endl;
 	std::cout << currentPlayer->getName() <<"'s turn." << std::endl;
-	std::cout << currentPlayer->getName() <<"'s Bank: " << currentPlayer->calculateScore() << std::endl;
+	std::cout << currentPlayer->getName() <<"'s Score: " << currentPlayer->calculateScore() << std::endl;
 
 	bool keepDrawingCards = true;
 
@@ -105,14 +107,18 @@ void Game::playTurn() {
 		std::cout << "Draw again (y/n): ";
 		std::cin >> input;
 
-		if (input != "y" && input != "Y") {
+		if (input != "n" && input != "N") {
 			currentPlayer->bankCards(*this);
 			currentPlayer->displayBank();
+			std::cout << currentPlayer->getName() << "'s Score: " << currentPlayer->calculateScore() << std::endl;
 			switchPlayer();
 			return;
 		}
-		else if (input == "n") {
-
+		else if (input == "y" && "Y") {
+			break;
+		}
+		else {
+			std::cout << "Invalid input. Please enter either Y/N." << std::endl;
 		}
 
 	}
